@@ -1,28 +1,29 @@
 //TASK 2 - Create the App Component:
 
-import React, { useState } from "react";
-import ProductList from "./ProductList";
-import AddProductForm from "./AddProductForm";
+import React, { useState } from 'react';
+import ProductList from './ProductList';
+import AddProductForm from './AddProductForm';
 
-const App = () => {
+function App() {
+  // Initial list of products
   const [products, setProducts] = useState([
-    { id: 12479, name: "Perfume", price: "$80", description: "8oz Vanilla Spray bottle perfum." },
-    { id: 22479, name: "Mascara", price: "$25", description: "Fine black mascara tube with roll brush." },
-    { id: 22479, name: "Blush", price: "$20", description: "Deep red blush tube." },
-    { id: 22479, name: "Powder", price: "$20", description: "Fine matte face." },
+    { id: 1, name: 'Product A', price: '$10', description: 'Description for Product A' },
+    { id: 2, name: 'Product B', price: '$20', description: 'Description for Product B' },
   ]);
 
+  // Function to add a new product to the list
   const addProduct = (newProduct) => {
-    setProducts((prevProducts) => [...prevProducts, newProduct]);
+    setProducts([...products, { ...newProduct, id: products.length + 1 }]);
   };
 
   return (
     <div>
       <h1>Product Dashboard</h1>
-      <AddProductForm addProduct={addProduct} />
       <ProductList products={products} />
+      <AddProductForm addProduct={addProduct} />
     </div>
   );
-};
+}
 
 export default App;
+

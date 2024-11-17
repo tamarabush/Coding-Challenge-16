@@ -1,51 +1,65 @@
+//TASK 5 - Create the AddProductForm Component:
 
+import React, { useState } from 'react';
 
-import React, { useState } from "react";
+function AddProductForm({ addProduct }) {
+  //state to manage the input fields
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
 
-const AddProductForm = ({ addProduct }) => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-
+  //handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //create the new product object
     const newProduct = {
-      id: Date.now(),
       name,
       price,
       description,
     };
+
+    //pass the new product to the addProduct function
     addProduct(newProduct);
-    setName("");
-    setPrice("");
-    setDescription("");
+
+    //clear the input fields after submission
+    setName('');
+    setPrice('');
+    setDescription('');
   };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <h2>Add New Product</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Product Name"
+      <label>
+        Name:
+        <input 
+          type="text" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          required 
         />
-        <input
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          placeholder="Product Price"
+      </label>
+      <label>
+        Price:
+        <input 
+          type="text" 
+          value={price} 
+          onChange={(e) => setPrice(e.target.value)} 
+          required 
         />
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Product Description"
-        ></textarea>
-        <button type="submit">Add Product</button>
-      </form>
-    </div>
+      </label>
+      <label>
+        Description:
+        <textarea 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)} 
+          required 
+        />
+      </label>
+      <button type="submit">Add Product</button>
+    </form>
   );
-};
+}
 
 export default AddProductForm;
