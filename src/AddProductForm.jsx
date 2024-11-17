@@ -1,5 +1,3 @@
-//TASK 5 - Create the AddProductForm Component:
-
 import React, { useState } from 'react';
 
 function AddProductForm({ addProduct }) {
@@ -7,55 +5,52 @@ function AddProductForm({ addProduct }) {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (eve) => {
-    eve.preventDefault();
-
-    const newProduct = { name, price, description };
-    addProduct(newProduct);
-
-    setName('');
-    setPrice('');
-    setDescription('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name && price && description) {  // Ensure all fields are filled
+      const newProduct = { name, price, description };
+      addProduct(newProduct); // Add the new product
+      setName('');
+      setPrice('');
+      setDescription('');
+    } else {
+      alert("Please fill out all fields!");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add New Product</h2>
-      <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(eve) => setName(eve.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Price:
-          <input
-            type="text"
-            value={price}
-            onChange={(eve) => setPrice(eve.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Description:
-          <textarea
-            value={description}
-            onChange={(eve) => setDescription(e.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <button type="submit">Add Product</button>
-      </div>
+      <label>
+        Name:
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)} // Update name
+        />
+      </label>
+      <br />
+      <label>
+        Price:
+        <input
+          type="text"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)} // Update price
+        />
+      </label>
+      <br />
+      <label>
+        Description:
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)} // Update description
+        />
+      </label>
+      <br />
+      <button type="submit">Add Product</button>
     </form>
   );
 }

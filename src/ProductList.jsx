@@ -1,20 +1,17 @@
-//TASK 3 - Create the ProductList Component:
+import React from 'react';
+import ProductItem from './ProductItem'; // Ensure this is correctly imported
 
-import React from "react";
-import ProductItem from "../ProductItem";
-
-const ProductList = ({ products }) => {
-    //TASK 5 - Implement Keys in the ProductList Component:
+function ProductList({ products }) {
   return (
     <div>
-      <h2>Product List</h2>
-      <ul>
-        {products.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </ul>
+      {products.map((product) => (
+        <ProductItem
+          key={product.id} // Use a unique key for each item
+          product={product} // Pass each product as a prop
+        />
+      ))}
     </div>
   );
-};
+}
 
 export default ProductList;
