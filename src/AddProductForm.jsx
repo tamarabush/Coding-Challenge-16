@@ -1,3 +1,5 @@
+//TASK 6 - reate the AddProductForm Component:
+
 import React, { useState } from 'react';
 
 function AddProductForm({ addProduct }) {
@@ -7,9 +9,9 @@ function AddProductForm({ addProduct }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name && price && description) {  // Ensure all fields are filled
+    if (name && price && description) {  //ensure all fields are filled
       const newProduct = { name, price, description };
-      addProduct(newProduct); // Add the new product
+      addProduct(newProduct); //add the new product
       setName('');
       setPrice('');
       setDescription('');
@@ -26,7 +28,7 @@ function AddProductForm({ addProduct }) {
           type="text"
           placeholder="Name"
           value={name}
-          onChange={(e) => setName(e.target.value)} // Update name
+          onChange={(e) => setName(e.target.value)} //update name
         />
       </label>
       <br />
@@ -36,7 +38,7 @@ function AddProductForm({ addProduct }) {
           type="text"
           placeholder="Price"
           value={price}
-          onChange={(e) => setPrice(e.target.value)} // Update price
+          onChange={(e) => setPrice(e.target.value)} //update price
         />
       </label>
       <br />
@@ -46,7 +48,7 @@ function AddProductForm({ addProduct }) {
           type="text"
           placeholder="Description"
           value={description}
-          onChange={(e) => setDescription(e.target.value)} // Update description
+          onChange={(e) => setDescription(e.target.value)} //update description
         />
       </label>
       <br />

@@ -1,5 +1,9 @@
+//TASK 4 - Create the ProductItem Component:
+
+
 import React from 'react';
 
+//TASK 5 - Implement Keys in the ProductList Component:
 function ProductItem({ product }) {
   return (
     <div>
