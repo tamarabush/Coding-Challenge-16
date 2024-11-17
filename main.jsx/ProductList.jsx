@@ -4,6 +4,7 @@ import React from "react";
 import ProductItem from "./ProductItem";
 
 const ProductList = ({ products }) => {
+    //TASK 5 - Implement Keys in the ProductList Component:
   return (
     <div>
       <h2>Product List</h2>
