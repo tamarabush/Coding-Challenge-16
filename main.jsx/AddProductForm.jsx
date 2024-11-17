@@ -3,26 +3,26 @@
 import React, { useState } from 'react';
 
 function AddProductForm({ addProduct }) {
-  //state to manage the input fields
+  // State variables for form fields
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
 
-  //handle form submission
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submit behavior (page refresh)
 
-    //create the new product object
+    // Create a new product object from form input values
     const newProduct = {
       name,
       price,
       description,
     };
 
-    //pass the new product to the addProduct function
+    // Call the addProduct function passed from App component
     addProduct(newProduct);
 
-    //clear the input fields after submission
+    // Clear the form fields after submission
     setName('');
     setPrice('');
     setDescription('');
@@ -31,33 +31,41 @@ function AddProductForm({ addProduct }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add New Product</h2>
-      <label>
-        Name:
-        <input 
-          type="text" 
-          value={name} 
-          onChange={(e) => setName(e.target.value)} 
-          required 
-        />
-      </label>
-      <label>
-        Price:
-        <input 
-          type="text" 
-          value={price} 
-          onChange={(e) => setPrice(e.target.value)} 
-          required 
-        />
-      </label>
-      <label>
-        Description:
-        <textarea 
-          value={description} 
-          onChange={(e) => setDescription(e.target.value)} 
-          required 
-        />
-      </label>
-      <button type="submit">Add Product</button>
+      <div>
+        <label>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)} // Update state when input changes
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Price:
+          <input
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)} // Update state when input changes
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Description:
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)} // Update state when input changes
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <button type="submit">Add Product</button>
+      </div>
     </form>
   );
 }
