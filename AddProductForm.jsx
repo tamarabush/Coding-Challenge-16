@@ -3,26 +3,16 @@
 import React, { useState } from 'react';
 
 function AddProductForm({ addProduct }) {
-  // State variables for form fields
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submit behavior (page refresh)
+  const handleSubmit = (eve) => {
+    eve.preventDefault();
 
-    // Create a new product object from form input values
-    const newProduct = {
-      name,
-      price,
-      description,
-    };
-
-    // Call the addProduct function passed from App component
+    const newProduct = { name, price, description };
     addProduct(newProduct);
 
-    // Clear the form fields after submission
     setName('');
     setPrice('');
     setDescription('');
@@ -37,7 +27,7 @@ function AddProductForm({ addProduct }) {
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)} // Update state when input changes
+            onChange={(eve) => setName(eve.target.value)}
             required
           />
         </label>
@@ -48,7 +38,7 @@ function AddProductForm({ addProduct }) {
           <input
             type="text"
             value={price}
-            onChange={(e) => setPrice(e.target.value)} // Update state when input changes
+            onChange={(eve) => setPrice(eve.target.value)}
             required
           />
         </label>
@@ -58,7 +48,7 @@ function AddProductForm({ addProduct }) {
           Description:
           <textarea
             value={description}
-            onChange={(e) => setDescription(e.target.value)} // Update state when input changes
+            onChange={(eve) => setDescription(e.target.value)}
             required
           />
         </label>
