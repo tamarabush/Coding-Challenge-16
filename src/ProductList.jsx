@@ -1,7 +1,7 @@
 //TASK 3 - Create the ProductList Component:
 
 import React from "react";
-import ProductItem from "./ProductItem";
+import ProductItem from "../ProductItem";
 
 const ProductList = ({ products }) => {
     //TASK 5 - Implement Keys in the ProductList Component:

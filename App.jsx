@@ -1,17 +1,13 @@
-//TASK 2 - Create the App Component:
-
 import React, { useState } from 'react';
-import ProductList from './ProductList';
-import AddProductForm from './AddProductForm';
+import ProductList from './src/ProductList'; // Make sure this is correctly imported
+import AddProductForm from './src/AddProductForm'; // Make sure this is correctly imported
 
 function App() {
-  // Initial list of products
   const [products, setProducts] = useState([
     { id: 1, name: 'Product A', price: '$10', description: 'Description for Product A' },
-    { id: 2, name: 'Product B', price: '$20', description: 'Description for Product B' },
+    { id: 2, name: 'Product B', price: '$20', description: 'Description for Product B' }
   ]);
 
-  // Function to add a new product to the list
   const addProduct = (newProduct) => {
     setProducts([...products, { ...newProduct, id: products.length + 1 }]);
   };
@@ -26,4 +22,3 @@ function App() {
 }
 
 export default App;
-
